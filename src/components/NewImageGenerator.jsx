@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { API_KEY } from "../file";
+import { HUG_API_KEY }  from '../file'
 import lottie from 'lottie-web';
 import { defineElement } from 'lord-icon-element';
 import { css } from "@emotion/react";
@@ -8,15 +9,16 @@ import { useNavigate } from "react-router-dom";
 import Button from '@mui/material/Button';
 import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
 import ShareIcon from '@mui/icons-material/Share';
+import { Auth, db, firestoreCollection } from '../firebase-config'
+import { useAuthState } from 'react-firebase-hooks/auth'
 import { toast } from "react-hot-toast";
-
-// const HUG_API_KEY = "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";
-
 defineElement(lottie.loadAnimation);
-function GenerateImage() {
-
+function NewGenerateImage() {
+    const auth = Auth;
     const [loading, setLoading] = useState(false)
-
+    const navigator = useNavigate()
+    const [user] = useAuthState(Auth)
+    const [counter, setCounter] = useState(0);
     const [filename, setFilename] = useState('')
     const [btnDisable, setBtnDisable] = useState(false)
 
@@ -39,8 +41,8 @@ function GenerateImage() {
         setLoading(true);
         setGeneratedImage(null);
         fetch(
-        
-            "https://api-inference.huggingface.co/models/prompthero/openjourney"
+            "Remove Comment When want to use it"
+            // "https://api-inference.huggingface.co/models/prompthero/openjourney"
             ,
             {
                 method: "POST",
@@ -81,6 +83,27 @@ function GenerateImage() {
             link.click();
         }
     };
+
+    const shareImage = () => {
+        if (generatedImage) {
+            if (navigator.share) {
+                navigator.share({
+                    title: "Generated AI Image",
+                    url: generatedImage,
+                });
+            } else {
+                alert("Sharing is not supported in your browser.");
+            }
+        }
+    };
+
+
+    const override = css`
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  `;
     return (
         <div className="image_wrap" >
             <div className="image_wrap_heading">
@@ -107,7 +130,8 @@ function GenerateImage() {
                             autoplay
                             style={{ height: '300px', width: '300px' }}
                         />
-
+                        {/* <lord-icon className="loading-icon" trigger="loop"
+                        delay="0" src="https://cdn.lordicon.com/ymrqtsej.json"  size={400}></lord-icon> */}
                     </div>
                 )
             }
@@ -118,11 +142,10 @@ function GenerateImage() {
                         <img src={generatedImage} title={caption} alt="Generated AI Image" />
                         <div>
 
-                            <Button variant="outlined" className="img_btn" onClick={downloadImage}>Download   <CloudDownloadIcon /></Button>
+                            <Button className="img_btn" onClick={downloadImage}>Download   <CloudDownloadIcon /></Button>
 
-                            <a href="whatsapp://send?text=This is WhatsApp sharing example using link" data-action="share/whatsapp/share"
-                                target="_blank"><Button variant="outlined" className="img_btn" >Share  <ShareIcon /></Button></a>
 
+                            <Button className="img_btn" onClick={shareImage}>Share  <ShareIcon /></Button>
 
                         </div>
                     </div>
@@ -137,4 +160,4 @@ function GenerateImage() {
     );
 }
 
-export default GenerateImage;
+export default NewGenerateImage;

@@ -5,19 +5,9 @@ import CallMadeIcon from '@mui/icons-material/CallMade';
 import InfoIcon from '@mui/icons-material/Info';
 // import ChatBot from './ChatBot';
 import { Player } from '@lottiefiles/react-lottie-player';
-import SpeechToText from './SpeechToText';
-import ImageToText from './ImageToText';
-import SpeechRecognition from './SpeechRecognition';
-import SpeechRecognitionApp from './SpeechRecognition';
-import SpeechRecognitionComponent from './SpeechRecognition';
-import ImageTagger from './Test'
-import EmailGenerate from './EmailGenrate';
-import TextToSpeech from './TextToSpeech';
-import LandingPage from './LandingPage';
-import NewsGenrator from './NewsGenrator';
-import DeepAIImageGen from './DeepAIImageGen';
-import TextGeneration from './TextGeneration';
-import Demo from './Demo';
+import Footer from './Footer';
+
+
 
 const Home = () => {
 
@@ -44,37 +34,31 @@ const Home = () => {
     });
   };
 
-  const text = "This is some text that will be spoken aloud.";
 
   return (
     <div>
+  
       <div className='hero'>
         <div className="left">
           <div className="texts">
             <h1>Discover the <br /> Art of Possibility</h1>
             <p>Explore the Magic of AI Generative Tools</p>
             <div>
-              <Button onClick={handleGetStarted} id="getStarted" size="large">Get Started <CallMadeIcon/></Button>
-              <Button size="large">Guide <InfoIcon  /></Button>
+              <Button onClick={handleGetStarted} id="getStarted" size="large">Get Started <CallMadeIcon /></Button>
+              <Button size="large">Guide <InfoIcon /></Button>
             </div>
           </div>
 
         </div>
         <div className="right">
           <div className="img">
-          {/* <lord-icon
-    src="https://cdn.lordicon.com/ridbdkcb.json"
-    trigger="loop"
-    delay="2000"
-    colors="primary:#4be1ec,secondary:#cb5eee"
-   >
-</lord-icon> */}
             <Player
               src='https://assets2.lottiefiles.com/packages/lf20_uJwv9KEHdN.json'
+              // src="https://lottie.host/fbf816e0-05db-431e-8f8c-5755e1aa7da3/JXl0T2zWR4.json"
               className="player"
               loop
               autoplay
-              style={{ height: '300px', width: '300px' }}
+              style={{ height: '400px', width: '400px' }}
             />
             {/* <img src=../Images/hero.svg" alt="hero ai image" /> */}
           </div>
@@ -87,23 +71,11 @@ const Home = () => {
       </div>
 
       <Service scrollRef={scrollRef} />
-     {/* <EmailGenerate/> */}
-      {/* <ChatBot/> */}
-      {/* <SpeechToText/> */}
-      {/* <ImageToText/> */}
-      {/* <TextToSpeech text={text} /> */}
-      {/* <SpeechRecognitionApp/> */}
-      {/* <SpeechRecognitionComponent/> */}
-      {/* <NewsGenrator/> */}
+{/* <DeepAIImageGen/> */}
 
-{/* <DeepAIImageGen/>     */}
-{/* <TextGeneration/> */}
-   {/* <TextToSpeech/> */}
-      
-      {/* <ImageTagger /> */}
-      <Demo/>
+     <Footer/>
     </div>
-    
+
   )
 }
 

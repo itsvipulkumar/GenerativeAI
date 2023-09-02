@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import InstagramIcon from '@mui/icons-material/Instagram';
 import GoogleIcon from '@mui/icons-material/Google';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPhoneNumber, signInWithPopup } from 'firebase/auth';
+
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { Auth, Provider } from '../firebase-config';
 import { useNavigate } from 'react-router-dom'
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -12,7 +11,7 @@ import { toast } from 'react-hot-toast'
 
 const Login = () => {
 
-
+ 
     const navigator = useNavigate()
     const [user] = useAuthState(Auth)
     const [email, setEmail] = useState('')
@@ -38,7 +37,7 @@ const Login = () => {
     const handleRegsiter = (e) => {
         e.preventDefault()
 
-        if (email != "" && password != "" && fname != "") {
+        if (email !== "" && password !== "" && fname !== "") {
             if (validator.isEmail(email)) {
                 if (password.length >= 8) {
                     console.log("yes")
