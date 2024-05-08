@@ -10,6 +10,8 @@ import NewsGenrator from './components/NewsGenrator'
 import More from './components/More'
 import Footer from './components/Footer'
 import Service from './components/Service'
+import AboutUs from './components/Aboutus'
+import Plans from './components/Plans'
 
 
 
@@ -25,15 +27,17 @@ const App = () => {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
+            <Route path='/about' element={<AboutUs />} />
+            <Route path='/plans' element={<Plans />} />
             <Route path='/generate-image' element={<GenerateImage />} />
             <Route path='/image-tagger' element={<ImageTagger />} />
             <Route path='/more' element={<More />} />
-            <Route path='/tools' element={<Service/>} />
+            <Route path='/tools' element={<Service />} />
 
             <Route path='/news-generation' element={<NewsGenrator />} />
-          
+
             <Route path='/news-generation' element={<NewsGenrator />} />
-           
+
 
           </Routes>
 
@@ -41,7 +45,7 @@ const App = () => {
 
 
       </div>
-     
+
     </>
   )
 }

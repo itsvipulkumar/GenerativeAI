@@ -83,66 +83,66 @@ const Navbar = () => {
     return (
         <>
 
-      
-        <div className='navbar'>
+
+            <div className='navbar'>
 
 
-            <div className='left'>
-                <Link className='logo' to="/"> <img src="./Images/logo.png" alt="logo" /> <h1>Generative AI</h1></Link>
-            </div>
+                <div className='left'>
+                    <Link className='logo' to="/"> <img src="./Images/logo.png" alt="logo" /> <h1>Generative AI</h1></Link>
+                </div>
 
 
-            <div className='mid'>
+                <div className='mid'>
                     <Link className='navLinks' to="/tools">
-                    {/* <FontAwesomeIcon className='mobile_v' icon={faMicrochip} /> */}
-                    <span>Tools</span> </Link>
-                <Link className='navLinks desktop_view' to="/about">
+                        {/* <FontAwesomeIcon className='mobile_v' icon={faMicrochip} /> */}
+                        <span>Tools</span> </Link>
+                    <Link className='navLinks desktop_view' to="/about">
 
-                    {/* <FontAwesomeIcon className='mobile_v' icon={faHome} /> */}
-                    <span>About</span></Link>
-                <Link className='navLinks desktop_view' to="/about">
-                    {/* <FontAwesomeIcon className='mobile_v' icon={faHome} /> */}
-                    <span>Pricing</span></Link>
-            </div>
-            <div className='right'>
+                        {/* <FontAwesomeIcon className='mobile_v' icon={faHome} /> */}
+                        <span>About</span></Link>
+                    <Link className='navLinks desktop_view' to="/plans">
+                        {/* <FontAwesomeIcon className='mobile_v' icon={faHome} /> */}
+                        <span>Pricing</span></Link>
+                </div>
+                <div className='right'>
 
-                {
-                    user ? <span onClick={logoutEvent}>
-                        <Tooltip title="Logout">
-                            <StyledBadge
-                                overlap="circular"
-                                anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-                                variant="dot"
-                            >
-                                <Avatar className='avatar_user' src={user?.photoURL ? user?.photoURL : user?.displayName} />
-                            </StyledBadge>
-                        </Tooltip>
-                    </span> :
-                        <Link className='navLinks' to="/login">Login</Link>
-                }
+                    {
+                        user ? <span onClick={logoutEvent}>
+                            <Tooltip title="Logout">
+                                <StyledBadge
+                                    overlap="circular"
+                                    anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                                    variant="dot"
+                                >
+                                    <Avatar className='avatar_user' src={user?.photoURL ? user?.photoURL : user?.displayName} />
+                                </StyledBadge>
+                            </Tooltip>
+                        </span> :
+                            <Link className='navLinks' to="/login">Login</Link>
+                    }
+                </div>
+
             </div>
-           
-        </div>
-         <div className='mid_mobile_view'>
+            <div className='mid_mobile_view'>
                 <Link className='mobile_view' to="/">
-                    <FontAwesomeIcon  icon={faMicrochip} />
+                    <FontAwesomeIcon icon={faMicrochip} />
                     {/* <span>AI Generator</span>  */}
-                    </Link>
-               
+                </Link>
+
                 <Link className='mobile_view' to="/about">
                     <FontAwesomeIcon icon={faMagnifyingGlass} />
                     {/* <span>HOME</span> */}
-                    </Link>
+                </Link>
                 <Link className='mobile_view' to="/about">
                     <FontAwesomeIcon icon={faHandHoldingDollar} />
                     {/* <span>HOME</span> */}
-                    </Link>
-               {
+                </Link>
+                {
                     !user && <Link className='mobile_view' to="/login">
                         <FontAwesomeIcon icon={faArrowRightToBracket} />
 
                     </Link>
-               }
+                }
             </div>
         </>
     )

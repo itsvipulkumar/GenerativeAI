@@ -1104,3 +1104,75 @@ body::-webkit-scrollbar {
 
 
 
+
+.about_wrap ul {
+  list-style: none;
+}
+
+.plans-section {
+  width: 100%;
+  padding: 48px 0;
+}
+
+.plans-container {
+  display: flex;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  padding: 0 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.plan-card {
+  width: 400px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.plan-card.dark-bg {
+  background-color: #1F2937;
+}
+
+.dark-bg .plan-content {
+  color: #fff !important;
+}
+
+.dark-bg .plan-description {
+  color: #fff !important;
+}
+
+.plan-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.plan-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.plan-description {
+  color: #6B7280;
+}
+
+.plan-price {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.price {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.price-per {
+  color: #6B7280;
+}
+
+.plan-button {
+  width: 100%;
+}

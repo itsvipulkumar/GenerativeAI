@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import GoogleIcon from '@mui/icons-material/Google';
-
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { Auth, Provider } from '../firebase-config';
 import { useNavigate } from 'react-router-dom'
@@ -8,10 +7,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { Alert, Button } from '@mui/material';
 import validator from 'validator';
 import { toast } from 'react-hot-toast'
-
 const Login = () => {
-
- 
     const navigator = useNavigate()
     const [user] = useAuthState(Auth)
     const [email, setEmail] = useState('')
@@ -27,10 +23,9 @@ const Login = () => {
         signInWithPopup(Auth, Provider).then((res) => {
             console.log(res);
             navigator("/generate-image")
-        }).catch((e)=>{
-            if (e.code ==="auth/popup-closed-by-user")
-            {
-               toast.error("SignIn failed!")   
+        }).catch((e) => {
+            if (e.code === "auth/popup-closed-by-user") {
+                toast.error("SignIn failed!");
             }
         })
     }

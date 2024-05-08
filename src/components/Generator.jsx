@@ -39,7 +39,7 @@ function GenerateImage() {
         setLoading(true);
         setGeneratedImage(null);
         fetch(
-        
+
             "https://api-inference.huggingface.co/models/prompthero/openjourney"
             ,
             {
@@ -122,17 +122,10 @@ function GenerateImage() {
 
                             <a href="whatsapp://send?text=This is WhatsApp sharing example using link" data-action="share/whatsapp/share"
                                 target="_blank"><Button variant="outlined" className="img_btn" >Share  <ShareIcon /></Button></a>
-
-
                         </div>
                     </div>
                 </div>
-
             )}
-
-
-
-
         </div>
     );
 }
