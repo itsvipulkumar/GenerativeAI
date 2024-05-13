@@ -34,7 +34,7 @@ const Footer = () => {
                     </div>
                    
                 </div>
-                <p className='madeby'>Designed and Developed by <a target='_blank' href="https://itsaboutvipul.web.app/">Vipul</a> With <FontAwesomeIcon icon={faMugHot} /> <span></span></p>
+                <p className='madeby'>Designed and Developed by <a target='_blank' href="https://github.com/vipulkumar6/">Vipul</a> With <FontAwesomeIcon icon={faMugHot} /> <span></span></p>
                
             </div>
         </>
